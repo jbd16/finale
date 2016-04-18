@@ -1,7 +1,6 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello it's me. Been wondering if after all these years etc.
 
 Things you may want to cover:
 
