@@ -1,7 +1,4 @@
 
-def landing_page
-	@products = Product.limit(3)
-end
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 	<!--Indicators-->
@@ -13,18 +10,14 @@ end
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
-		<div class="item active">
-			<img alt="Bike 1" src="http://dreamatico.com/data_images/bike/bike-3.jpg" />
+		<% @products.each do |product| %>
+		<div class="item<%= " active" if product == @products.first%>">
+		<%= image_tag(product.image_url, class: "img-responsive", id: "product-photo") %>
 			<div class="carousel-caption">
-				<p>BIKE ONE</p>
+				<h2><%= product.name %></h2>
 			</div>
 		</div>
-		<div class="item active">
-			<img alt="Bike 2" src="http://c.shld.net/rpx/i/s/i/spin/image/spin_prod_895957112??hei=64&wid=64&qlt=50" />
-			<div class="carousel-caption">
-				<p>BIKE TWO</p>
-			</div>
-		</div>
+		<% end %>
 	</div>
 
 	<!-- Controls -->
