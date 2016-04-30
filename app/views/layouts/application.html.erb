@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <form accept-charset="UTF-8" action="/" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;" />
+    <input name="authenticity_token" type="hidden" value="J7CBxfHalt490SHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+  </form>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,14 +13,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-  <ul>
-  	<li>Home</li>
-  	<li>About</li>
-  	<li>Contact</li>
-  </ul>
-</nav>
 
+<form class="navbar-form navbar-right" role="search">
+<%= form_tag("/products", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+</form>
 <%= yield %>
 
 <footer>
