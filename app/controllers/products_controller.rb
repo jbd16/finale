@@ -78,5 +78,13 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :description, :image_url, :color, :price)
     end
 
+    # GET /products/1
+    # GET /products/1.json
+    def show
+      @comments = @product.comments.order("created_at DESC")
+    end
+
+
+
 end
 
